@@ -142,6 +142,10 @@ class _OnboardingMeState extends State<OnboardingMe> {
                   children: pageIndicator(widget.numOfPage, currentPage,
                       widget.isPageIndicatorCircle),
                 ),
+                Spacer(),
+                currentPage == widget.numOfPage - 1
+          ? callToAction(text: widget.ctaText[1], homeRoute: widget.homeRoute, context: context)
+          : Text(''),
               ],
             ),
           ),
@@ -149,9 +153,7 @@ class _OnboardingMeState extends State<OnboardingMe> {
       ),
 
       /// Will show Main Call to action on the last page
-      bottomSheet: currentPage == widget.numOfPage - 1
-          ? callToAction(text: widget.ctaText[1], homeRoute: widget.homeRoute, context: context)
-          : Text(''),
+
     );
   }
 }
